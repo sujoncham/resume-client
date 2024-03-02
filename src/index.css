@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.about-innter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+}
+
+.about-image {
+  width: 50%;
+}
+
+.about-text {
+  width: 50%;
+}
+
+.btnButton {
+  padding: 10px;
+  background-image: linear-gradient(orange tomato);
+  color: #800080;
+  border-radius: 8px;
+}
+
+.social-link a i {
+  font-size: 35px;
+}
+
+/* skills*/
+* .my-skils {
+  background-color: purple;
+  height: 350px;
+  color: white;
+}
+
+.skils {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*footer*/
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  background: #800080;
+}

@@ -1,0 +1,17 @@
+.slider {
+  background: #800080;
+}
+
+.slide {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.slide-text h3 {
+  font-size: 35px;
+}
+
+.slide-text h5 {
+  font-size: 20px;
+}
