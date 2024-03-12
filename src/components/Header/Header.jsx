@@ -73,9 +73,9 @@ const Header = () => {
     <header className="bg-gray-800 p-3 sticky z-40 top-0 ">
       <div className="container mx-auto relative">
         <div className="menu">
-          <a className="text-white text-xl" href="#">
+          <Link className="text-white text-xl" to={"/"}>
             Logo
-          </a>
+          </Link>
           <div className="xs:hidden sm:hidden md:block lg:block">
             <ul className="flex justify-start items-center gap-2 md:text-white lg:text-white">
               {menu}

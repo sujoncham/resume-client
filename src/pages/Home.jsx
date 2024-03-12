@@ -1,15 +1,15 @@
+import AboutMe from "../components/AboutMe";
 import Banner from "../components/Banner/Banner";
 import ContactForm from "../components/ContactForm";
-import HomeSec1 from "../components/HomeSec1";
-import HomeSec2 from "../components/HomeSec2";
-import Projects from "../components/projects/projects";
+import Projects from "../components/Projects/Projects";
+import Skills from "../components/Skills";
 
 const Home = () => {
   return (
     <div>
       <Banner />
-      <HomeSec1 />
-      <HomeSec2 />
+      <AboutMe />
+      <Skills />
       <Projects />
       <ContactForm />
     </div>

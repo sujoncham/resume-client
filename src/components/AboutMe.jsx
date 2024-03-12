@@ -2,7 +2,7 @@ import img1 from "../assets/feature.png";
 import "../index.css";
 import SocialLnk from "./SocialLnk";
 
-const HomeSec1 = () => {
+const AboutMe = () => {
   return (
     <div className="about py-10 xs:py-2" id="introduce">
       <div className="container mx-auto py-10 px-10 xs:px-1 xs:py-1">
@@ -33,4 +33,4 @@ const HomeSec1 = () => {
   );
 };
 
-export default HomeSec1;
+export default AboutMe;
