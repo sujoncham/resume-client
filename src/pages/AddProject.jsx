@@ -1,13 +1,17 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AddProject = () => {
+  const user = localStorage.getItem("userId");
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     title: "",
     technology: "",
     description: "",
     projectLink: "",
-    projectGit: "",
+    projectClient: "",
+    projectServer: "",
     image: null,
   });
 
@@ -28,8 +32,14 @@ const AddProject = () => {
     projectData.append("technology", formData.technology);
     projectData.append("description", formData.description);
     projectData.append("projectLink", formData.projectLink);
-    projectData.append("projectGit", formData.projectGit);
+    projectData.append("projectClient", formData.projectClient);
+    projectData.append("projectServer", formData.projectServer);
     projectData.append("image", formData.image);
+    projectData.append("user", user);
+
+    if (!user) {
+      navigate("/login");
+    }
 
     try {
       // Send form data to backend
@@ -101,12 +111,23 @@ const AddProject = () => {
             />
           </div>
           <div className="flex flex-col">
-            <label>ProjectGit:</label>
+            <label>ProjectClient:</label>
             <input
               type="text"
-              name="projectGit"
-              placeholder="Add ProjectGit"
-              value={formData.projectGit}
+              name="projectClient"
+              placeholder="Add projectClient"
+              value={formData.projectClient}
+              onChange={handleChange}
+              className="border-2 border-purple-300 rounded-md px-2 py-1"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label>ProjectServer:</label>
+            <input
+              type="text"
+              name="projectServer"
+              placeholder="Add projectServer"
+              value={formData.projectServer}
               onChange={handleChange}
               className="border-2 border-purple-300 rounded-md px-2 py-1"
             />

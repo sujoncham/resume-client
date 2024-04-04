@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "../index.css";
 
 const Skills = () => {
@@ -23,6 +24,15 @@ const Skills = () => {
   return (
     <section className="bg-purple-800 py-16 text-white" id="mySkills">
       <div className="container mx-auto xs:px-1 sm:px-3 md:px-5 lg:px-5">
+        <div className="flex justify-start items-center gap-1">
+          <h1 className="text-center text-3xl font-bold py-10">My Skills </h1>
+          <Link
+            className="text-2xl font-bold border-2 border-purple-300 px-1"
+            to={"/addSkill"}
+          >
+            +
+          </Link>
+        </div>
         <div className="grid xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 justify-between items-center gap-5">
           {skill.map((skil) => (
             <div

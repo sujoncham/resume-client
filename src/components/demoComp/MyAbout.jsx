@@ -1,0 +1,34 @@
+import img1 from "../../assets/feature.png";
+import SocialLnk from "../SocialLnk";
+const MyAbout = () => {
+  return (
+    <section className="about py-10 xs:py-2" id="introduce">
+      <div className="container mx-auto py-10 px-10 xs:px-1 xs:py-1">
+        <div className="flex md:flex-row-reverse lg:flex-row-reverse xs:flex-col sm:flex-col justify-between items-center gap-1">
+          <div className="md:w-[50%] lg:w-[50%] xs:w-full sm:w-full">
+            <img src={img1} alt="" />
+          </div>
+          <div className="md:w-[50%] lg:w-[50%] xs:w-full sm:xs:w-full">
+            <div className="">
+              <h3 className="text-3xl uppercase">John Kelbene</h3>
+              <h5 className="text-xl uppercase">Course Participant</h5>
+            </div>
+            <div className="">
+              <p>
+                আমি ওয়েব ডিজাইন সম্পর্কে পরিচিত হই, বা নাম শুনেছি ২০০৯ সালের
+                দিকে নামে বেনামে বিভিন্ন পোস্টার বা ব্যানার থেকে। এরপর বিভিন্ন
+                পেপার-এর মাধ্যমে আরো কিছুটা অবগত হই। আসলে এটা কি, এটা দিয়ে কি
+                করলে টাকা আসে, এসব ঘাটাঘাটি করিনি। তবে ২০১৩ সালের দিকে এক বড়ো
+                ভাইয়ের কাছে একটু হিন্টস পাই। তখন থেকেই ওয়েব ডিজাইন সম্পর্কে
+                ঘাটাঘাটি করি।{" "}
+              </p>
+            </div>
+            <SocialLnk />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default MyAbout;

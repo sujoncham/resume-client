@@ -1,22 +1,64 @@
+import axios from "axios";
+import { useState } from "react";
+
 const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    fullname: "",
+    email: "",
+    title: "",
+    description: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formData.fullname);
+    console.log(formData.email);
+    console.log(formData.title);
+    console.log(formData.description);
+
+    // Create form data object
+    const project = new FormData();
+    project.append("fullname", formData.fullname);
+    project.append("email", formData.email);
+    project.append("title", formData.title);
+    project.append("description", formData.description);
+
+    await axios
+      .post("http://localhost:5000/api/message/addMessage", project)
+      .then((data) => {
+        console.log("inserted", data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div
-      className="flex items-center justify-center p-12 bg-purple-400"
+      className="flex items-center justify-center p-12 bg-purple-800"
       id="contactForm"
     >
       <div className="mx-auto w-full max-w-[550px]">
-        <form action="https://formbold.com/s/FORM_ID" method="POST">
+        <form onSubmit={handleSubmit}>
           <div className="mb-5">
             <label
-              htmlFor="name"
+              htmlFor="fullname"
               className="mb-3 block text-base font-medium text-[#07074D]"
             >
               Full Name
             </label>
             <input
               type="text"
-              name="name"
-              id="name"
+              name="fullname"
+              value={formData.fullname}
+              onChange={handleChange}
               placeholder="Full Name"
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
             />
@@ -31,43 +73,49 @@ const ContactForm = () => {
             <input
               type="email"
               name="email"
-              id="email"
-              placeholder="example@domain.com"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="email here"
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
             />
           </div>
           <div className="mb-5">
             <label
-              htmlFor="subject"
+              htmlFor="title"
               className="mb-3 block text-base font-medium text-[#07074D]"
             >
               Subject
             </label>
             <input
               type="text"
-              name="subject"
-              id="subject"
+              name="title"
+              value={formData.title}
+              onChange={handleChange}
               placeholder="Enter your subject"
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
             />
           </div>
           <div className="mb-5">
             <label
-              htmlFor="message"
+              htmlFor="description"
               className="mb-3 block text-base font-medium text-[#07074D]"
             >
               Message
             </label>
             <textarea
               rows="4"
-              name="message"
-              id="message"
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
               placeholder="Type your message"
               className="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
             ></textarea>
           </div>
           <div>
-            <button className="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none hover:bg-purple-500">
+            <button
+              type="submit"
+              className="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none hover:bg-purple-500"
+            >
               Submit
             </button>
           </div>
