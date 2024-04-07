@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { FaBitbucket } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom/dist/umd/react-router-dom.development";
 import "../Header/Header.css";
 const Header = () => {
   const [open, setOpen] = useState(true);
   const user = localStorage.getItem("token");
+  const username = localStorage.getItem("username");
   const navigate = useNavigate();
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
@@ -58,7 +60,7 @@ const Header = () => {
   );
 
   return (
-    <header className="bg-purple-200 text-purple-800 p-3 sticky z-40 top-0 ">
+    <header className="bg-purple-200 text-purple-800 p-1 sticky z-40 top-0 ">
       <div className="container mx-auto relative">
         <div className="menu">
           <Link
@@ -101,9 +103,14 @@ const Header = () => {
               )}
               {user && (
                 <>
-                  {/* <li className="hover:bg-purple-400 px-2 py-1 rounded-md">
-                    <Link to={"/register"}>Register</Link>
-                  </li> */}
+                  <li className="hover:bg-purple-400 border-2 w-14 h-14 bg-purple-500 px-2 py-1 rounded-full flex justify-center items-center">
+                    <Link to={"/"}>
+                      <FaBitbucket />
+                    </Link>
+                  </li>
+                  <li className="hover:bg-purple-400 border-2 w-14 h-14 bg-purple-500 px-2 py-1 rounded-full flex justify-center items-center">
+                    <Link to={"/"}>{username[0]}</Link>
+                  </li>
                   <li className="hover:bg-purple-400 px-2 py-1 rounded-md">
                     <button onClick={handleLogout}>Logout</button>
                   </li>

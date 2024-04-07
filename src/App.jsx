@@ -5,6 +5,8 @@ import {
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header/Header";
+import AddAddress from "./pages/AddAddress";
+import AddData from "./pages/AddData";
 import AddProject from "./pages/AddProject";
 import SkillForm from "./pages/AddSkills";
 import Home from "./pages/Home";
@@ -22,6 +24,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/addSkill" element={<SkillForm />} />
           <Route path="/addProject" element={<AddProject />} />
+          <Route path="/addData" element={<AddData />} />
+          <Route path="/address" element={<AddAddress />} />
         </Routes>
       </div>
       <Footer />
