@@ -2,9 +2,14 @@ import { useState } from "react";
 import { FaBitbucket } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom/dist/umd/react-router-dom.development";
+import NotMessage from "../../helper/NotMessage";
+import Notification from "../../helper/Notification";
 import "../Header/Header.css";
 const Header = () => {
   const [open, setOpen] = useState(true);
+  const [open1, setOpen1] = useState(true);
+  const [noti] = Notification();
+  // console.log(noti);
   const user = localStorage.getItem("token");
   const username = localStorage.getItem("username");
   const navigate = useNavigate();
@@ -103,10 +108,15 @@ const Header = () => {
               )}
               {user && (
                 <>
-                  <li className="hover:bg-purple-400 border-2 w-14 h-14 bg-purple-500 px-2 py-1 rounded-full flex justify-center items-center">
-                    <Link to={"/"}>
-                      <FaBitbucket />
-                    </Link>
+                  <li
+                    onClick={() => setOpen1(!open1)}
+                    className="hover:bg-purple-400 border-2 w-14 h-14 bg-purple-500 px-2 py-1 rounded-full flex justify-center items-center relative"
+                  >
+                    <FaBitbucket />
+                    <sup className="text-red-800 font-bold text-[15px]">
+                      {noti?.data?.length}
+                    </sup>
+                    {!open1 && <NotMessage noti={noti} />}
                   </li>
                   <li className="hover:bg-purple-400 border-2 w-14 h-14 bg-purple-500 px-2 py-1 rounded-full flex justify-center items-center">
                     <Link to={"/"}>{username[0]}</Link>
