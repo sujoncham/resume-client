@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -10,31 +11,17 @@ const ContactForm = () => {
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData.fullname);
-    console.log(formData.email);
-    console.log(formData.title);
-    console.log(formData.description);
-
-    // Create form data object
-    const project = new FormData();
-    project.append("fullname", formData.fullname);
-    project.append("email", formData.email);
-    project.append("title", formData.title);
-    project.append("description", formData.description);
 
     await axios
-      .post("http://localhost:5000/api/message/addMessage", project)
+      .post("http://localhost:5000/api/message/addMessage", formData)
       .then((data) => {
         console.log("inserted", data);
+        toast.info("message delivered");
       })
       .catch((err) => {
         console.log(err);

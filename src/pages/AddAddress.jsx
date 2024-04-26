@@ -7,19 +7,12 @@ const AddAddress = () => {
     temporaryAdd: "",
   });
 
-  // const [permanentAdd, setPermanentAdd] = useState("");
-  // const [temporaryAdd, setTemporaryAdd] = useState("");
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log("hello", formData);
-    // const addresses = new FormData();
-    // addresses.append("permanentAdd", formData.permanentAdd);
-    // addresses.append("temporaryAdd", formData.temporaryAdd);
-    // console.log(addresses);
+
     try {
       const response = await axios.post(
         "http://localhost:5000/api/address/createAddress",

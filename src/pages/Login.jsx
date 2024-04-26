@@ -30,8 +30,8 @@ const Login = () => {
         console.log("login successfull");
         localStorage.setItem("userId", data.data.data._id);
         localStorage.setItem("username", data.data.data.username);
-        // localStorage.setItem("fname", data.data.data.fname);
-        // localStorage.setItem("lname", data.data.data.lname);
+        localStorage.setItem("fname", data.data.data.fname);
+        localStorage.setItem("lname", data.data.data.lname);
         localStorage.setItem("email", data.data.data.email);
         localStorage.setItem("token", data.data.token);
         navigate("/");

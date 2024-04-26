@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 const Notification = () => {
   const [noti, setNoti] = useState([]);
-  // console.log(noti);
+  console.log(noti);
   useEffect(() => {
     const getData = async () => {
       try {

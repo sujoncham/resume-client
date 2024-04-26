@@ -9,7 +9,8 @@ const Header = () => {
   const [open, setOpen] = useState(true);
   const [open1, setOpen1] = useState(true);
   const [noti] = Notification();
-  // console.log(noti);
+  console.log(noti.data);
+  const unread = noti.data?.filter((item) => !item.isOpen).length;
   const user = localStorage.getItem("token");
   const username = localStorage.getItem("username");
   const navigate = useNavigate();
@@ -104,9 +105,6 @@ const Header = () => {
                   <Link to={"/login"}>Login</Link>
                 </li>
               ) : (
-                ""
-              )}
-              {user && (
                 <>
                   <li
                     onClick={() => setOpen1(!open1)}
@@ -114,7 +112,7 @@ const Header = () => {
                   >
                     <FaBitbucket />
                     <sup className="text-red-800 font-bold text-[15px]">
-                      {noti?.data?.length}
+                      {unread}
                     </sup>
                     {!open1 && <NotMessage noti={noti} />}
                   </li>
