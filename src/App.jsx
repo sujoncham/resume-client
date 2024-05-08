@@ -13,6 +13,7 @@ import AddData from "./pages/AddData";
 import AddProject from "./pages/AddProject";
 import SkillForm from "./pages/AddSkills";
 import AllMessage from "./pages/AllMessage";
+import Dashboard from "./pages/Dashboard";
 import DescriptionAdd from "./pages/DescriptionAdd";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -38,6 +39,7 @@ function App() {
           <Route path="/titleText/:id" element={<TitleSubTitle />} />
           <Route path="/description/:id" element={<DescriptionAdd />} />
           <Route path="/socialLinkAdd" element={<SocialLinkAdd />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route
             path="/message/:id"
             element={

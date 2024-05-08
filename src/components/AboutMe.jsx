@@ -25,7 +25,7 @@ const AboutMe = () => {
                 {users?.data?.fname} {users?.data?.lname}
               </h3>
             </div>
-            <div className="">
+            <div className="mb-10">
               {users?.data?.description ? (
                 <>
                   <h5>{users?.data?.description}</h5>

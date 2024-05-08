@@ -8,6 +8,8 @@ import "../Header/Header.css";
 const Header = () => {
   const [open, setOpen] = useState(true);
   const [open1, setOpen1] = useState(true);
+  const [open2, setOpen2] = useState(true);
+
   const [noti] = Notification();
   // console.log(noti.data);
   const unread = noti.data?.filter((item) => !item.isOpen).length;
@@ -64,6 +66,22 @@ const Header = () => {
       </li>
     </>
   );
+  const profileMenu = (
+    <div className="flex-col items-start absolute top-14 z-30 w-52 bg-gray-600 px-2 py-2">
+      <button className="hover:bg-purple-400 px-2 py-1 rounded-md">
+        <Link to={""}>Dashboard</Link>
+      </button>
+      <button className="hover:bg-purple-400 px-2 py-1 rounded-md">
+        <Link to={""}>Setting</Link>
+      </button>
+      <button
+        className="hover:bg-purple-400 px-2 py-1 rounded-md"
+        onClick={handleLogout}
+      >
+        Logout
+      </button>
+    </div>
+  );
 
   return (
     <header className="bg-purple-200 text-purple-800 p-1 sticky z-40 top-0 ">
@@ -116,8 +134,12 @@ const Header = () => {
                     </sup>
                     {!open1 && <NotMessage noti={noti} />}
                   </li>
-                  <li className="hover:bg-purple-400 border-2 w-14 h-14 bg-purple-500 px-2 py-1 rounded-full flex justify-center items-center">
+                  <li
+                    onClick={() => setOpen2(!open2)}
+                    className="hover:bg-purple-400 border-2 w-14 h-14 bg-purple-500 px-2 py-1 rounded-full flex justify-center items-center relative"
+                  >
                     <Link to={"/"}>{username[0]}</Link>
+                    {!open2 && profileMenu}
                   </li>
                   <li className="hover:bg-purple-400 px-2 py-1 rounded-md">
                     <button onClick={handleLogout}>Logout</button>

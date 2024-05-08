@@ -9,9 +9,6 @@ const Banner = () => {
   const id = localStorage.getItem("userId");
   const { users } = UserData(id);
 
-  console.log(users);
-
-  console.log(users);
   const navigate = useNavigate();
   const handleTitle = (id) => {
     navigate(`/titleText/${id}`);
@@ -27,7 +24,7 @@ const Banner = () => {
             <h3 className="text-3xl uppercase">
               {users?.data?.fname} {users?.data?.lname}
             </h3>
-            <div>
+            <div className="mb-10">
               {users?.data?.title && users?.data?.subTitle ? (
                 <>
                   <h5>{users?.data?.title}</h5>
@@ -47,8 +44,8 @@ const Banner = () => {
                 </>
               )}
             </div>
+            <SocialLnk />
           </div>
-          <SocialLnk />
         </div>
       </div>
     </section>
