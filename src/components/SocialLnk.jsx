@@ -1,20 +1,27 @@
+import {
+  FaFacebookF,
+  FaGoogle,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitter,
+} from "react-icons/fa";
 const SocialLnk = () => {
   return (
-    <div className="social-link">
+    <div className="flex justify-start items-center gap-2 mb-10">
       <a href="">
-        <i className="fa fa-mail-forward"></i>
+        <FaFacebookF />
       </a>
       <a href="">
-        <i className="fa fa-twitter"></i>
+        <FaInstagram />
       </a>
       <a href="">
-        <i className="fa fa-instagram"></i>
+        <FaTwitter />
       </a>
       <a href="">
-        <i className="fa fa-facebook"></i>
+        <FaLinkedinIn />
       </a>
       <a href="">
-        <i className="fa fa-linkedin"></i>
+        <FaGoogle />
       </a>
     </div>
   );

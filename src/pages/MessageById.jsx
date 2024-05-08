@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom/dist/umd/react-router-dom.development";
+import { useParams } from "react-router-dom";
 
 const MessageById = () => {
   const { id } = useParams();
   const [message, setMessage] = useState({});
   const fname = localStorage.getItem("fname");
   const lname = localStorage.getItem("lname");
-  console.log(message);
+  // console.log(message);
 
   useEffect(() => {
     const getData = async () => {

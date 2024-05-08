@@ -13,10 +13,13 @@ import AddData from "./pages/AddData";
 import AddProject from "./pages/AddProject";
 import SkillForm from "./pages/AddSkills";
 import AllMessage from "./pages/AllMessage";
+import DescriptionAdd from "./pages/DescriptionAdd";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import MessageById from "./pages/MessageById";
 import Register from "./pages/Register";
+import SocialLinkAdd from "./pages/SocialLinkAdd";
+import TitleSubTitle from "./pages/TitleSubTitle";
 
 function App() {
   return (
@@ -32,6 +35,9 @@ function App() {
           <Route path="/addData" element={<AddData />} />
           <Route path="/address" element={<AddAddress />} />
           <Route path="/messageAll" element={<AllMessage />} />
+          <Route path="/titleText/:id" element={<TitleSubTitle />} />
+          <Route path="/description/:id" element={<DescriptionAdd />} />
+          <Route path="/socialLinkAdd" element={<SocialLinkAdd />} />
           <Route
             path="/message/:id"
             element={

@@ -22,7 +22,7 @@ const Home = () => {
         </>
       ) : (
         <>
-          <Banner user={user} />
+          <Banner />
           <AboutMe user={user} />
           <Skills user={user} />
           <Projects user={user} />

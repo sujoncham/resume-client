@@ -3,7 +3,7 @@ import { isOpenFunc } from "./IsOpenFunc";
 /* eslint-disable react/prop-types */
 const NotMessage = ({ noti }) => {
   // const navigate = useNavigate();
-  console.log(noti.data);
+  // console.log(noti.data);
   const handleIsOpen = async (id) => {
     isOpenFunc(id);
     // navigate(`/message/${id}`);

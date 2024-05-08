@@ -78,7 +78,7 @@ const Projects = () => {
                   <h3>
                     <span>Technology :</span> {project.technology}
                   </h3>
-                  <h4>Details : {project.description}</h4>
+                  <h4>Details : {project.description.slice(0, 50)} ...</h4>
                   <p>
                     Project link :{" "}
                     <a href="" className="text-orange-500">

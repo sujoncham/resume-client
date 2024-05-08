@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../index.css";
 
 const Skills = () => {
-  const [skill, setSkill] = useState([]);
+  const [skills, setSkills] = useState([]);
   // console.log(skill);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const Skills = () => {
       try {
         const response = await axios.get("http://localhost:5000/api/skill/");
         // console.log("Skill saved successfully:", response.data);
-        setSkill(response.data.data);
+        setSkills(response.data.data);
       } catch (error) {
         console.error("Error saving skill:", error);
         // Optionally, show an error message to the user
@@ -34,7 +34,7 @@ const Skills = () => {
           </Link>
         </div>
         <div className="grid xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 justify-between items-center gap-5">
-          {skill.map((skil) => (
+          {skills.map((skil) => (
             <div
               key={skil._id}
               className="border-2 border-purple-500 hover:border-purple-900 py-3 px-5 h-56"

@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
-const AddAddress = () => {
+const DescriptionAdd = () => {
+  const { id } = useParams();
   const [formData, setFormData] = useState({
-    permanentAdd: "",
-    temporaryAdd: "",
-    user: localStorage.getItem("userId"),
+    description: "",
   });
 
   const handleChange = (e) => {
@@ -16,8 +16,8 @@ const AddAddress = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/address/createAddress",
+      const response = await axios.put(
+        `http://localhost:5000/api/user/description/${id}`,
         formData
       );
       console.log("Addresses saved successfully:", response.data);
@@ -32,32 +32,18 @@ const AddAddress = () => {
     // location.reload();
   };
   return (
-    <div className="bg-purple-400">
+    <div>
       <div className="container mx-auto px-10 py-16 flex justify-center items-center">
         <form
           onSubmit={handleSubmit}
           className="w-1/3 border-2 border-purple-700 py-3 px-5 rounded-md"
         >
           <div className="flex flex-col">
-            <label>Permanent Address:</label>
-            <input
-              type="text"
-              name="permanentAdd"
-              placeholder="Add permanent"
-              // onChange={(e) => setPermanentAdd(e.target.value)}
-              value={formData.permanentAdd}
-              onChange={handleChange}
-              className="border-2 border-purple-300 rounded-md px-2 py-1"
-            />
-          </div>
-          <div className="flex flex-col">
-            <label>Temporary Address:</label>
-            <input
-              type="text"
-              name="temporaryAdd"
-              placeholder="Add Address"
-              // onChange={(e) => setTemporaryAdd(e.target.value)}
-              value={formData.temporaryAdd}
+            <label>description:</label>
+            <textarea
+              name="description"
+              placeholder="Add description"
+              value={formData.description}
               onChange={handleChange}
               className="border-2 border-purple-300 rounded-md px-2 py-1"
             />
@@ -75,4 +61,4 @@ const AddAddress = () => {
   );
 };
 
-export default AddAddress;
+export default DescriptionAdd;

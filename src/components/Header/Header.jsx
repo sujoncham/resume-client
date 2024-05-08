@@ -9,7 +9,7 @@ const Header = () => {
   const [open, setOpen] = useState(true);
   const [open1, setOpen1] = useState(true);
   const [noti] = Notification();
-  console.log(noti.data);
+  // console.log(noti.data);
   const unread = noti.data?.filter((item) => !item.isOpen).length;
   const user = localStorage.getItem("token");
   const username = localStorage.getItem("username");

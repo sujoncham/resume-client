@@ -1,27 +1,28 @@
 import axios from "axios";
 import { useState } from "react";
 
-const AddAddress = () => {
+const SocialLinkAdd = () => {
   const [formData, setFormData] = useState({
-    permanentAdd: "",
-    temporaryAdd: "",
-    user: localStorage.getItem("userId"),
+    facebook: "",
+    instagram: "",
+    linkedIn: "",
+    github: "",
+    twitter: "",
   });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/address/createAddress",
+        "http://localhost:5000/api/socialLink/socialLinkAdd",
         formData
       );
-      console.log("Addresses saved successfully:", response.data);
-      alert("Addresses saved successfully");
+      console.log("social link saved successfully:", response.data);
+      alert("social link saved successfully");
       // Optionally, show a success message or redirect to another page
     } catch (error) {
       console.error("Error saving skill:", error.response.data);
@@ -39,25 +40,51 @@ const AddAddress = () => {
           className="w-1/3 border-2 border-purple-700 py-3 px-5 rounded-md"
         >
           <div className="flex flex-col">
-            <label>Permanent Address:</label>
+            <label>Facebook:</label>
             <input
               type="text"
-              name="permanentAdd"
-              placeholder="Add permanent"
-              // onChange={(e) => setPermanentAdd(e.target.value)}
+              name="facebook"
               value={formData.permanentAdd}
               onChange={handleChange}
               className="border-2 border-purple-300 rounded-md px-2 py-1"
             />
           </div>
           <div className="flex flex-col">
-            <label>Temporary Address:</label>
+            <label>Instagram:</label>
             <input
               type="text"
-              name="temporaryAdd"
-              placeholder="Add Address"
-              // onChange={(e) => setTemporaryAdd(e.target.value)}
-              value={formData.temporaryAdd}
+              name="instagram"
+              value={formData.instagram}
+              onChange={handleChange}
+              className="border-2 border-purple-300 rounded-md px-2 py-1"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label>LinkedIn:</label>
+            <input
+              type="text"
+              name="linkedIn"
+              value={formData.linkedIn}
+              onChange={handleChange}
+              className="border-2 border-purple-300 rounded-md px-2 py-1"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label>Git Hub:</label>
+            <input
+              type="text"
+              name="github"
+              value={formData.github}
+              onChange={handleChange}
+              className="border-2 border-purple-300 rounded-md px-2 py-1"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label>Twitter:</label>
+            <input
+              type="text"
+              name="twitter"
+              value={formData.twitter}
               onChange={handleChange}
               className="border-2 border-purple-300 rounded-md px-2 py-1"
             />
@@ -75,4 +102,4 @@ const AddAddress = () => {
   );
 };
 
-export default AddAddress;
+export default SocialLinkAdd;
