@@ -67,12 +67,9 @@ const Header = () => {
     </>
   );
   const profileMenu = (
-    <div className="flex-col items-start absolute top-14 z-30 w-52 bg-gray-600 px-2 py-2">
+    <div className="flex-col items-start absolute top-14 z-30 w-48 bg-purple-600 text-white px-2 py-2">
       <button className="hover:bg-purple-400 px-2 py-1 rounded-md">
-        <Link to={""}>Dashboard</Link>
-      </button>
-      <button className="hover:bg-purple-400 px-2 py-1 rounded-md">
-        <Link to={""}>Setting</Link>
+        <Link to={"/dashboard"}>Dashboard</Link>
       </button>
       <button
         className="hover:bg-purple-400 px-2 py-1 rounded-md"
@@ -126,7 +123,7 @@ const Header = () => {
                 <>
                   <li
                     onClick={() => setOpen1(!open1)}
-                    className="hover:bg-purple-400 border-2 w-14 h-14 bg-purple-500 px-2 py-1 rounded-full flex justify-center items-center relative"
+                    className="hover:bg-purple-400 border-2 w-14 h-14 bg-purple-500 px-2 py-1 rounded-full flex justify-center items-center relative cursor-pointer"
                   >
                     <FaBitbucket />
                     <sup className="text-red-800 font-bold text-[15px]">
@@ -136,13 +133,10 @@ const Header = () => {
                   </li>
                   <li
                     onClick={() => setOpen2(!open2)}
-                    className="hover:bg-purple-400 border-2 w-14 h-14 bg-purple-500 px-2 py-1 rounded-full flex justify-center items-center relative"
+                    className="hover:bg-purple-400 border-2 w-14 h-14 bg-purple-500 px-2 py-1 rounded-full flex justify-center items-center relative cursor-pointer"
                   >
-                    <Link to={"/"}>{username[0]}</Link>
+                    <span>{username[0]}</span>
                     {!open2 && profileMenu}
-                  </li>
-                  <li className="hover:bg-purple-400 px-2 py-1 rounded-md">
-                    <button onClick={handleLogout}>Logout</button>
                   </li>
                 </>
               )}

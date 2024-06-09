@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import { useNavigate } from "react-router-dom";
 import img from "../../assets/feature.png";
 import UserData from "../../hooks/UserData";
 import "../Banner/Banner.css";
@@ -9,10 +8,6 @@ const Banner = () => {
   const id = localStorage.getItem("userId");
   const { users } = UserData(id);
 
-  const navigate = useNavigate();
-  const handleTitle = (id) => {
-    navigate(`/titleText/${id}`);
-  };
   return (
     <section className="bg-purple-800" id="banner">
       <div className="container mx-auto">
@@ -32,13 +27,6 @@ const Banner = () => {
                 </>
               ) : (
                 <>
-                  <button
-                    onClick={() => handleTitle(id)}
-                    title="Title and SubTitle"
-                    className="border-2 border-purple-300 px-2 py-1 rounded-md"
-                  >
-                    Add (+){" "}
-                  </button>
                   <h5>Course Participant</h5>
                   <p>Lorem ipsum dolor, sit amet cs?</p>
                 </>

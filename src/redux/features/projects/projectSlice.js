@@ -30,6 +30,7 @@ const projectSlice = createSlice({
     builder.addCase(fetchProjects.rejected, (state, action) => {
       state.isLoading = false;
       state.isError = true;
+      state.projects = [];
       state.error = action.error?.message;
     });
   },

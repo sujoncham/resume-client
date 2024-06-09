@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import img1 from "../assets/feature.png";
 import UserData from "../hooks/UserData";
 import "../index.css";
@@ -7,11 +6,7 @@ import SocialLnk from "./SocialLnk";
 const AboutMe = () => {
   const id = localStorage.getItem("userId");
   const { users } = UserData(id);
-  const navigate = useNavigate();
-  const handleDescripton = (id) => {
-    console.log("hello");
-    navigate(`/description/${id}`);
-  };
+
   return (
     <div className="about py-10 xs:py-2" id="introduce">
       <div className="container mx-auto py-10 px-10 xs:px-1 xs:py-1">
@@ -32,13 +27,6 @@ const AboutMe = () => {
                 </>
               ) : (
                 <>
-                  <button
-                    onClick={() => handleDescripton(id)}
-                    title="description"
-                    className="border-2 border-purple-300 px-2 py-1 rounded-md"
-                  >
-                    Add (+){" "}
-                  </button>
                   <p>
                     আমি ওয়েব ডিজাইন সম্পর্কে পরিচিত হই, বা নাম শুনেছি ২০০৯ সালের
                     দিকে নামে বেনামে বিভিন্ন পোস্টার বা ব্যানার থেকে। এরপর

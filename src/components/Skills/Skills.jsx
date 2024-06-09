@@ -1,41 +1,39 @@
-import { useEffect, } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { fetchProjects } from '../../redux/features/projects/projectSlice';
 // import axios from "axios";
-import "./Projects.css";
-import ProjectItem from "./ProjectItem";
+import { useEffect, } from "react";
+import { Link } from "react-router-dom";
+import "../../index.css";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchSkills } from "../../redux/features/skills/skillSlice";
 import LoadingComp from "../../utils/LoadingComp";
+import Skill from "./Skill";
 
-const Projects = () => {
-  
+const Skills = () => {
   const dispatch = useDispatch();
-  const { projects, isLoading, isError, error } = useSelector(
-    (state) => state.projects);
-  console.log(projects);
+  const { skills, isLoading, isError, error } = useSelector(
+    (state) => state.skills);
+  console.log(skills);
 
   useEffect(() => {
-    dispatch(fetchProjects());
+    dispatch(fetchSkills());
   }, [dispatch]);
 
   let content;
   if (isLoading) content = <LoadingComp />;
   if (!isLoading && isError)
     content = <div className="col-span-12">{error} error happened</div>;
-  if (!isLoading && !isError && projects?.length === 0)
+  if (!isLoading && !isError && skills?.length === 0)
     content = <div className="col-span-12">No videos found</div>;
-  if (!isLoading && !isError && projects?.length > 0)
-    content = projects.map((project) => <ProjectItem key={project._id} project={project} />);
-
-  // const [projects, setProjects] = useState([]);
+  if (!isLoading && !isError && skills?.length > 0)
+    content = skills.map((skill) => <Skill key={skill._id} skill={skill} />);
+  // const [skills, setSkills] = useState([]);
   // // console.log(skill);
 
   // useEffect(() => {
   //   const getData = async () => {
   //     try {
-  //       const response = await axios.get("http://localhost:5000/api/project/");
+  //       const response = await axios.get("http://localhost:5000/api/skill/");
   //       // console.log("Skill saved successfully:", response.data);
-  //       setProjects(response.data.data);
+  //       setSkills(response.data.data);
   //     } catch (error) {
   //       console.error("Error saving skill:", error);
   //       // Optionally, show an error message to the user
@@ -43,14 +41,15 @@ const Projects = () => {
   //   };
   //   getData();
   // }, []);
+
   return (
-    <section className="py-10" id="projects">
-      <div className="container mx-auto">
+    <section className="bg-purple-800 py-16 text-white" id="mySkills">
+      <div className="container mx-auto xs:px-1 sm:px-3 md:px-5 lg:px-5">
         <div className="flex justify-start items-center gap-1">
-          <h1 className="text-center text-3xl font-bold py-10">My Projects</h1>
+          <h1 className="text-center text-3xl font-bold py-10">My Skills </h1>
           <Link
             className="text-2xl font-bold border-2 border-purple-300 px-1"
-            to={"/addProject"}
+            to={"/addSkill"}
           >
             +
           </Link>
@@ -63,4 +62,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Skills;

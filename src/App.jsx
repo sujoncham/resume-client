@@ -14,6 +14,7 @@ import AddProject from "./pages/AddProject";
 import SkillForm from "./pages/AddSkills";
 import AllMessage from "./pages/AllMessage";
 import Dashboard from "./pages/Dashboard";
+import DashboardSetting from "./pages/DashboardSetting";
 import DescriptionAdd from "./pages/DescriptionAdd";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -21,6 +22,7 @@ import MessageById from "./pages/MessageById";
 import Register from "./pages/Register";
 import SocialLinkAdd from "./pages/SocialLinkAdd";
 import TitleSubTitle from "./pages/TitleSubTitle";
+import WelcomePage from "./pages/WelcomePage";
 
 function App() {
   return (
@@ -31,15 +33,20 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/addSkill" element={<SkillForm />} />
-          <Route path="/addProject" element={<AddProject />} />
-          <Route path="/addData" element={<AddData />} />
-          <Route path="/address" element={<AddAddress />} />
+
           <Route path="/messageAll" element={<AllMessage />} />
-          <Route path="/titleText/:id" element={<TitleSubTitle />} />
-          <Route path="/description/:id" element={<DescriptionAdd />} />
-          <Route path="/socialLinkAdd" element={<SocialLinkAdd />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route index element={<WelcomePage />} />
+            <Route path="addData" element={<AddData />} />
+            <Route path="addSkill" element={<SkillForm />} />
+            <Route path="addProject" element={<AddProject />} />
+            <Route path="address" element={<AddAddress />} />
+            <Route path="socialLinkAdd" element={<SocialLinkAdd />} />
+            <Route path="titleText" element={<TitleSubTitle />} />
+            <Route path="description" element={<DescriptionAdd />} />
+            <Route path="setting" element={<DashboardSetting />} />
+          </Route>
           <Route
             path="/message/:id"
             element={

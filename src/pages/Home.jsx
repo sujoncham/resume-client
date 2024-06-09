@@ -2,7 +2,7 @@ import AboutMe from "../components/AboutMe";
 import Banner from "../components/Banner/Banner";
 import ContactForm from "../components/ContactForm";
 import Projects from "../components/Projects/Projects";
-import Skills from "../components/Skills";
+import Skills from "../components/Skills/Skills";
 import MyAbout from "../components/demoComp/MyAbout";
 import MyBanner from "../components/demoComp/MyBanner";
 import MyProjects from "../components/demoComp/MyProjects";
