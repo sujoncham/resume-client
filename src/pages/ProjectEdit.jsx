@@ -1,11 +1,14 @@
+import { useParams } from "react-router-dom";
 // import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createProjects } from "../redux/features/projects/projectsSlice";
 
-const AddProject = () => {
-  const user = localStorage.getItem("userId");
+
+const ProjectEdit = () => {
+    const {id} = useParams()
+    const user = localStorage.getItem("userId");
   const dispatch = useDispatch()
   const navigate = useNavigate();
   const [title, setTitle] = useState("")
@@ -55,8 +58,10 @@ const AddProject = () => {
 
  
   };
-  return (
-    <div className="bg-purple-400">
+    
+    return (
+        <div className="bg-purple-400">
+            <h1>Hello {id}</h1>
       <div className="container mx-auto px-10 py-2 flex justify-center items-center">
         <form
           onSubmit={handleSubmit}
@@ -146,7 +151,7 @@ const AddProject = () => {
         </form>
       </div>
     </div>
-  );
+    );
 };
 
-export default AddProject;
+export default ProjectEdit;

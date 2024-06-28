@@ -29,14 +29,17 @@ const ContactForm = () => {
   };
   return (
     <div
-      className="flex items-center justify-center p-12 bg-purple-800"
+      className="bg-purple-800 py-16"
       id="contactForm"
     >
-      <div className="mx-auto w-full max-w-[550px]">
-        <form onSubmit={handleSubmit}>
+      <div className="container mx-auto">
+      <div>
+          <h1 className="text-3xl font-bold text-white py-5">Contact with me</h1>
+        </div>
+        <form onSubmit={handleSubmit} className="grid xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 py-10 gap-5">
+          <div className="">
           <div className="mb-5">
             <label
-              htmlFor="fullname"
               className="mb-3 block text-base font-medium text-[#07074D]"
             >
               Full Name
@@ -52,7 +55,6 @@ const ContactForm = () => {
           </div>
           <div className="mb-5">
             <label
-              htmlFor="email"
               className="mb-3 block text-base font-medium text-[#07074D]"
             >
               Email Address
@@ -68,7 +70,6 @@ const ContactForm = () => {
           </div>
           <div className="mb-5">
             <label
-              htmlFor="title"
               className="mb-3 block text-base font-medium text-[#07074D]"
             >
               Subject
@@ -82,15 +83,16 @@ const ContactForm = () => {
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
             />
           </div>
+          </div>
+          <div className="">
           <div className="mb-5">
             <label
-              htmlFor="description"
               className="mb-3 block text-base font-medium text-[#07074D]"
             >
               Message
             </label>
             <textarea
-              rows="4"
+              rows="7"
               name="description"
               value={formData.description}
               onChange={handleChange}
@@ -105,6 +107,7 @@ const ContactForm = () => {
             >
               Submit
             </button>
+          </div>
           </div>
         </form>
       </div>

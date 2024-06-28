@@ -1,185 +1,40 @@
+import { useEffect, useState } from "react";
 import img3 from "../../assets/project-1.png";
+import { Link } from "react-router-dom";
+const projectsData = [
+  {id:1,title:"travel blog", technology:["tailwindcss", "reactJs", "nodejs", "mongodb"], projectLink:"gfkoajfaj", projectClient:"fadfsaoi", projectServer:"fadfsaoi"},
+  {id:2,title:"travel blog", technology:["tailwindcss", "reactJs", "nodejs", "mongodb"], projectLink:"gfkoajfaj", projectClient:"fadfsaoi", projectServer:"fadfsaoi"},
+  {id:3,title:"travel blog", technology:["tailwindcss", "reactJs", "nodejs", "mongodb"], projectLink:"gfkoajfaj", projectClient:"fadfsaoi", projectServer:"fadfsaoi"},
+  {id:4,title:"travel blog", technology:["tailwindcss", "reactJs", "nodejs", "mongodb"], projectLink:"gfkoajfaj", projectClient:"fadfsaoi", projectServer:"fadfsaoi"},
+  {id:5,title:"travel blog", technology:["tailwindcss", "reactJs", "nodejs", "mongodb"], projectLink:"gfkoajfaj", projectClient:"fadfsaoi", projectServer:"fadfsaoi"},
+  {id:6,title:"travel blog", technology:["tailwindcss", "reactJs", "nodejs", "mongodb"], projectLink:"gfkoajfaj", projectClient:"fadfsaoi", projectServer:"fadfsaoi"},
+  {id:7,title:"travel blog", technology:["tailwindcss", "reactJs", "nodejs", "mongodb"], projectLink:"gfkoajfaj", projectClient:"fadfsaoi", projectServer:"fadfsaoi"},
+]
 const MyProjects = () => {
+  const [projects, setProjects] = useState([])
+
+  useEffect(()=>{
+    setProjects(projectsData)
+  }, [])
   return (
     <section className="py-10" id="projects">
       <div className="container mx-auto">
-        <div className="grid xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 justify-between items-center gap-5">
-          <div className="my-work">
+        <div>
+          <h1 className="text-3xl font-bold py-5">My Projects</h1>
+        </div>
+        <div className="grid xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 justify-between items-center gap-5 mt-5">
+          {projects.length > 0 ? (projects.map(project=><div key={project.id} className="my-work">
             <a href="">
               <img src={img3} alt="my-work" className="w-full" />
             </a>
-            <div className="sort-text animate__animated animate__bounce">
-              <h1 className="xs:text-[12px] sm:text-[14px] md:text-[16px] lg:text-[16px]">
-                Travel Design Projects
-              </h1>
-              <h3 className="xs:text-[12px] sm:text-[14px] md:text-[16px] lg:text-[16px]">
-                <span>Technology :</span> html css , js
-              </h3>
-              <p className="xs:text-[12px] sm:text-[14px] md:text-[16px] lg:text-[16px]">
-                Project link :{" "}
-                <a href="https://sujoncham.github.io/travel-website-design-responsive/">
-                  project view
-                </a>
-              </p>
-              <br />
-              <p className="xs:text-[12px] sm:text-[14px] md:text-[16px] lg:text-[16px]">
-                Project code :{" "}
-                <a href="https://github.com/sujoncham/travel-website-design-responsive">
-                  source code
-                </a>
-              </p>
+            <div className="sort-text animate__animated animate__bounce text-center">
+              <Link to={"/login"} className="xs:text-[12px] sm:text-[14px] md:text-[16px] lg:text-[16px]">
+                Project View
+              </Link>
+             
             </div>
-          </div>
-          <div className="my-work">
-            <a href="">
-              <img src={img3} alt="my-work" />
-            </a>
-            <div className="sort-text animate__animated animate__bounce">
-              <h1>Blog Design Projects</h1>
-              <h3>
-                <span>Technology :</span> html css , js
-              </h3>
-              <p>
-                Project link :{" "}
-                <a href="https://sujoncham.github.io/blog-template-flexbox-responsive/">
-                  project view
-                </a>
-              </p>
-              <br />
-              <p>
-                Project code :{" "}
-                <a href="https://github.com/sujoncham/blog-template-flexbox-responsive">
-                  source code
-                </a>
-              </p>
-            </div>
-          </div>
-          <div className="my-work">
-            <a href="">
-              <img src={img3} alt="my-work" />
-            </a>
-            <div className="sort-text animate__animated animate__bounce">
-              <h1>New projects</h1>
-              <h3>
-                <span>Technology :</span> html css , js
-              </h3>
-              <p>
-                Project link : <a href="">project view</a>
-              </p>
-              <br />
-              <p>
-                Project code : <a href="">source code</a>
-              </p>
-            </div>
-          </div>
-          <div className="my-work">
-            <a href="">
-              <img src={img3} alt="my-work" />
-            </a>
-            <div className="sort-text animate__animated animate__bounce">
-              <h1>New projects</h1>
-              <h3>
-                <span>Technology :</span> html css , js
-              </h3>
-              <p>
-                Project link : <a href="">project view</a>
-              </p>
-              <br />
-              <p>
-                Project code : <a href="">source code</a>
-              </p>
-            </div>
-          </div>
-          <div className="my-work">
-            <a href="">
-              <img src={img3} alt="my-work" />
-            </a>
-            <div className="sort-text animate__animated animate__bounce">
-              <h1>New projects</h1>
-              <h3>
-                <span>Technology :</span> html css , js
-              </h3>
-              <p>
-                Project link : <a href="">project view</a>
-              </p>
-              <br />
-              <p>
-                Project code : <a href="">source code</a>
-              </p>
-            </div>
-          </div>
-          <div className="my-work">
-            <a href="">
-              <img src={img3} alt="my-work" />
-            </a>
-            <div className="sort-text animate__animated animate__bounce">
-              <h1>New projects</h1>
-              <h3>
-                <span>Technology :</span> html css , js
-              </h3>
-              <p>
-                Project link : <a href="">project view</a>
-              </p>
-              <br />
-              <p>
-                Project code : <a href="">source code</a>
-              </p>
-            </div>
-          </div>
-          <div className="my-work">
-            <a href="">
-              <img src={img3} alt="my-work" />
-            </a>
-            <div className="sort-text animate__animated animate__bounce">
-              <h1>New projects</h1>
-              <h3>
-                <span>Technology :</span> html css , js
-              </h3>
-              <p>
-                Project link : <a href="">project view</a>
-              </p>
-              <br />
-              <p>
-                Project code : <a href="">source code</a>
-              </p>
-            </div>
-          </div>
-          <div className="my-work">
-            <a href="">
-              <img src={img3} alt="my-work" />
-            </a>
-            <div className="sort-text animate__animated animate__bounce">
-              <h1>New projects</h1>
-              <h3>
-                <span>Technology :</span> html css , js
-              </h3>
-              <p>
-                Project link : <a href="">project view</a>
-              </p>
-              <br />
-              <p>
-                Project code : <a href="">source code</a>
-              </p>
-            </div>
-          </div>
-          <div className="my-work">
-            <a href="">
-              <img src={img3} alt="my-work" />
-            </a>
-            <div className="sort-text animate__animated animate__bounce">
-              <h1>New projects</h1>
-              <h3>
-                <span>Technology :</span> html css , js
-              </h3>
-              <p>
-                Project link : <a href="">project view</a>
-              </p>
-              <br />
-              <p>
-                Project code : <a href="">source code</a>
-              </p>
-            </div>
-          </div>
+          </div>)): "no data found"}
+          
         </div>
       </div>
     </section>

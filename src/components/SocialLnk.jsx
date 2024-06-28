@@ -1,28 +1,26 @@
 import {
   FaFacebookF,
-  FaGoogle,
   FaInstagram,
   FaLinkedinIn,
-  FaTwitter,
+  FaGithub,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const SocialLnk = () => {
   return (
     <div className="flex justify-start items-center gap-2 mb-10">
-      <a href="">
+      <Link to={"https://www.facebook.com/sujonchambugong14/"}>
         <FaFacebookF />
-      </a>
-      <a href="">
+      </Link>
+      <Link to={"https://www.instagram.com/sujonchambu/"}>
         <FaInstagram />
-      </a>
-      <a href="">
-        <FaTwitter />
-      </a>
-      <a href="">
+      </Link>
+      <Link to={"https://github.com/sujoncham"}> 
+      <FaGithub />
+      </Link>
+      <Link to={"https://www.linkedin.com/in/sujon-chambugong/"}> 
         <FaLinkedinIn />
-      </a>
-      <a href="">
-        <FaGoogle />
-      </a>
+      </Link>
+      
     </div>
   );
 };

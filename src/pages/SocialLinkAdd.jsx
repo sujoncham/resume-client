@@ -37,10 +37,10 @@ const SocialLinkAdd = () => {
       <div className="container mx-auto px-10 py-16 flex justify-center items-center">
         <form
           onSubmit={handleSubmit}
-          className="w-1/3 border-2 border-purple-700 py-3 px-5 rounded-md"
+          className="w-2/3 border-2 border-purple-700 py-3 px-5 rounded-md"
         >
           <div className="flex flex-col">
-            <label>Facebook:</label>
+            <label>Facebook user name:</label>
             <input
               type="text"
               name="facebook"
@@ -50,7 +50,7 @@ const SocialLinkAdd = () => {
             />
           </div>
           <div className="flex flex-col">
-            <label>Instagram:</label>
+            <label>Instagram user name:</label>
             <input
               type="text"
               name="instagram"
@@ -60,7 +60,7 @@ const SocialLinkAdd = () => {
             />
           </div>
           <div className="flex flex-col">
-            <label>LinkedIn:</label>
+            <label>LinkedIn user name:</label>
             <input
               type="text"
               name="linkedIn"
@@ -70,7 +70,7 @@ const SocialLinkAdd = () => {
             />
           </div>
           <div className="flex flex-col">
-            <label>Git Hub:</label>
+            <label>Github user name:</label>
             <input
               type="text"
               name="github"
@@ -80,7 +80,7 @@ const SocialLinkAdd = () => {
             />
           </div>
           <div className="flex flex-col">
-            <label>Twitter:</label>
+            <label>Twitter user name:</label>
             <input
               type="text"
               name="twitter"

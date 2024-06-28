@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaBitbucket } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom/dist/umd/react-router-dom.development";
+import { useLocation, useNavigate } from "react-router-dom/dist/umd/react-router-dom.development";
 import NotMessage from "../../helper/NotMessage";
 import Notification from "../../helper/Notification";
 import "../Header/Header.css";
@@ -11,7 +11,9 @@ const Header = () => {
   const [open2, setOpen2] = useState(true);
 
   const [noti] = Notification();
-  // console.log(noti.data);
+  const location = useLocation()
+  // console.log(location.pathname)
+  
   const unread = noti.data?.filter((item) => !item.isOpen).length;
   const user = localStorage.getItem("token");
   const username = localStorage.getItem("username");
@@ -32,38 +34,63 @@ const Header = () => {
 
   const menu = (
     <>
-      <li className="hover:bg-purple-400 px-2 py-1 rounded-md">
-        {user ? (
+       {location.pathname !== "/" ? (
+        <>
+        <li className="hover:bg-purple-400 px-2 py-1 rounded-md">
+       
           <Link to={"/"}>Home</Link>
+          </li>
+        <li className="hover:bg-purple-400 px-2 py-1 rounded-md">
+       
+          <Link to={"/resume"}>About</Link>
+          </li>
+        <li className="hover:bg-purple-400 px-2 py-1 rounded-md">
+       
+          <Link to={"/projects"}>Project</Link>
+          </li>
+        <li className="hover:bg-purple-400 px-2 py-1 rounded-md">
+       
+          <Link to={"/skills"}>Skills</Link>
+          </li>
+        <li className="hover:bg-purple-400 px-2 py-1 rounded-md">
+       
+          <Link to={"/contact"}>Contact</Link>
+          </li>
+          </>
         ) : (
+          <>
+          <li className="hover:bg-purple-400 px-2 py-1 rounded-md">
           <Link href="#banner" onClick={() => scrollToSection("banner")}>
             Home
           </Link>
-        )}
+        
       </li>
       <li className="hover:bg-purple-400 px-2 py-1 rounded-md">
-        <Link href="#introduce" onClick={() => scrollToSection("introduce")}>
-          About
-        </Link>
-      </li>
-      <li className="hover:bg-purple-400 px-2 py-1 rounded-md">
-        <Link href="#mySkills" onClick={() => scrollToSection("mySkills")}>
-          Skills
-        </Link>
-      </li>
-      <li className="hover:bg-purple-400 px-2 py-1 rounded-md">
-        <Link href="#projects" onClick={() => scrollToSection("projects")}>
-          Projects
-        </Link>
-      </li>
-      <li className="hover:bg-purple-400 px-2 py-1 rounded-md">
-        <Link
-          href="#contactForm"
-          onClick={() => scrollToSection("contactForm")}
-        >
-          Contact
-        </Link>
-      </li>
+      <Link href="#introduce" onClick={() => scrollToSection("introduce")}>
+        About
+      </Link>
+    </li>
+    <li className="hover:bg-purple-400 px-2 py-1 rounded-md">
+      <Link href="#mySkills" onClick={() => scrollToSection("mySkills")}>
+        Skills
+      </Link>
+    </li>
+    <li className="hover:bg-purple-400 px-2 py-1 rounded-md">
+      <Link href="#projects" onClick={() => scrollToSection("projects")}>
+        Projects
+      </Link>
+    </li>
+    <li className="hover:bg-purple-400 px-2 py-1 rounded-md">
+      <Link
+        href="#contactForm"
+        onClick={() => scrollToSection("contactForm")}
+      >
+        Contact
+      </Link>
+    </li>
+    </>
+      )}
+      
     </>
   );
   const profileMenu = (

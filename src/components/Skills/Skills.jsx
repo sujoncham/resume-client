@@ -11,7 +11,7 @@ const Skills = () => {
   const dispatch = useDispatch();
   const { skills, isLoading, isError, error } = useSelector(
     (state) => state.skills);
-  console.log(skills);
+  // console.log(skills);
 
   useEffect(() => {
     dispatch(fetchSkills());
@@ -49,12 +49,12 @@ const Skills = () => {
           <h1 className="text-center text-3xl font-bold py-10">My Skills </h1>
           <Link
             className="text-2xl font-bold border-2 border-purple-300 px-1"
-            to={"/addSkill"}
+            to={"/dashboard/addSkill"}
           >
             +
           </Link>
         </div>
-        <div className="grid xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 justify-between items-center gap-5">
+        <div className="grid xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 justify-between items-center gap-5 py-10">
           {content}
         </div>
       </div>

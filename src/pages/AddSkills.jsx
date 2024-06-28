@@ -46,7 +46,7 @@ const SkillForm = () => {
       <div className="container mx-auto px-10 py-16 flex justify-center items-center">
         <form
           onSubmit={handleSubmit}
-          className="w-1/3 border-2 border-purple-700 py-3 px-5 rounded-md"
+          className="w-2/3 border-2 border-purple-700 py-3 px-5 rounded-md"
         >
           <div className="flex flex-col">
             <label>Title:</label>
@@ -77,7 +77,7 @@ const SkillForm = () => {
               />
               <button
                 type="button"
-                className="border-2 border-purple-300 rounded-md px-2 py-1"
+                className="border-2 border-purple-300 rounded-md px-2 py-1 hover:bg-purple-500"
                 onClick={handleAddTechnology}
               >
                 Add
@@ -86,7 +86,7 @@ const SkillForm = () => {
           </div>
           <button
             type="submit"
-            className="border-2 border-purple-300 rounded-md px-2 py-1 mt-5"
+            className="border-2 border-purple-300 rounded-md px-2 py-1 mt-5 hover:bg-purple-500"
           >
             Save Skill
           </button>

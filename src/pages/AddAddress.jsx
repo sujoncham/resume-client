@@ -36,7 +36,7 @@ const AddAddress = () => {
       <div className="container mx-auto px-10 py-16 flex justify-center items-center">
         <form
           onSubmit={handleSubmit}
-          className="w-1/3 border-2 border-purple-700 py-3 px-5 rounded-md"
+          className="w-2/3 border-2 border-purple-700 py-3 px-5 rounded-md"
         >
           <div className="flex flex-col">
             <label>Permanent Address:</label>
@@ -50,7 +50,7 @@ const AddAddress = () => {
               className="border-2 border-purple-300 rounded-md px-2 py-1"
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col mt-5">
             <label>Temporary Address:</label>
             <input
               type="text"

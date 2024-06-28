@@ -11,8 +11,8 @@ const initialState = {
 export const fetchSkills = createAsyncThunk(
   "skills/fetchSkills",
   async () => {
-    const projects = await getSkills();
-    return projects;
+    const skills = await getSkills();
+    return skills;
   }
 );
 

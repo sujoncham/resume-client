@@ -23,6 +23,13 @@ import Register from "./pages/Register";
 import SocialLinkAdd from "./pages/SocialLinkAdd";
 import TitleSubTitle from "./pages/TitleSubTitle";
 import WelcomePage from "./pages/WelcomePage";
+import About from "./pages/About";
+import SinglePreview from "./components/Resume/SinglePreview";
+import ProjectSingle from "./pages/ProjectSingle";
+import ProjectEdit from "./pages/ProjectEdit";
+import MyProjects from "./pages/MyProjects";
+import MySkills from "./pages/MySkills";
+import MyContact from "./pages/MyContact";
 
 function App() {
   return (
@@ -33,6 +40,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/resume" element={<About />} />
+          <Route path="/projects" element={<MyProjects />} />
+          <Route path="/skills" element={<MySkills />} />
+          <Route path="/contact" element={<MyContact />} />
+          <Route path="/project/:id" element={<SinglePreview />} />
+          <Route path="/projectSingle/:id" element={<ProjectSingle />} />
+          <Route path="/projectEdit/:id" element={<ProjectEdit />} />
 
           <Route path="/messageAll" element={<AllMessage />} />
 
